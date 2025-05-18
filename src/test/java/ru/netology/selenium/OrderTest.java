@@ -44,10 +44,22 @@ public class OrderTest {
         form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петр Петров");
         form.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79245679845");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-//        driver.findElement(By.cssSelector("button.button_view_extra .button__text")).click();
-        driver.findElement(By.cssSelector("[data-test-id='submit']")).click();
+        driver.findElement(By.cssSelector("button.button_view_extra span.button__text")).click();
         WebElement resultElement = driver.findElement(By.cssSelector("[data-test-id='order-success']"));
         assertTrue(resultElement.isDisplayed());
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", resultElement.getText().trim());
     }
+
+//    @Test
+//    void shouldExceptionNotValidPhoneOnForm() {
+//        WebElement form = driver.findElement(By.cssSelector("form"));
+//        form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петр Петров");
+//        form.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7924567984");
+//        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+//        driver.findElement(By.cssSelector("button.button_view_extra .button__text")).click();
+////        driver.findElement(By.cssSelector("[data-test-id='submit']")).click();
+//        WebElement resultElement = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub"));
+//        assertTrue(resultElement.isDisplayed());
+//        assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", resultElement.getText().trim());
+//    }
 }
